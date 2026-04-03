@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard';
+import Warehouse from './pages/Warehouse';
+import Invoice from './pages/Invoice';
+import { ToastProvider } from './context/ToastContext';
+import './index.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ToastProvider>
+        <div className="app-layout">
+          <Sidebar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/"          element={<Dashboard />} />
+              <Route path="/warehouse" element={<Warehouse />} />
+              <Route path="/invoice"   element={<Invoice />}   />
+            </Routes>
+          </main>
+        </div>
+      </ToastProvider>
+    </BrowserRouter>
   );
 }
-
-export default App;
