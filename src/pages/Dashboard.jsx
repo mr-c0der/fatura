@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  PieChart, Pie, Cell, Legend
+  PieChart, Pie, Cell
 } from 'recharts';
 import { MdAttachMoney, MdReceipt, MdPeople, MdInventory2, MdWarning, MdShoppingCart } from 'react-icons/md';
 import * as api from '../services/api';
